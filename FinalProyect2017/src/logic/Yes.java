@@ -2,6 +2,7 @@ package logic;
 
 public class Yes {
 	private String nombre;
+	private String apelllido;
 
 	
 	public Yes(String nombre) {
