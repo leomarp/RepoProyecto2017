@@ -11,6 +11,8 @@ import javax.swing.border.EmptyBorder;
 
 import com.jtattoo.plaf.JTattooUtilities;
 
+import logica.Tienda;
+
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
@@ -21,6 +23,7 @@ public class Principal extends JFrame {
 
 	private JPanel contentPane;
 	private Dimension dim;
+	private static Tienda tiend;
 
 	/**
 	 * Launch the application.
@@ -29,7 +32,7 @@ public class Principal extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Principal frame = new Principal();
+					Principal frame = new Principal(Tienda.getInstance());
 					frame.setLocationRelativeTo(null);
 					frame.setVisible(true);
 				} catch (Exception e) {
@@ -42,7 +45,8 @@ public class Principal extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Principal() {
+	public Principal(Tienda tienda) {
+		tiend = tienda;
 		setResizable(false);
 		setTitle("Soluciones El Final");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

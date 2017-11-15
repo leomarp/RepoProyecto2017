@@ -8,9 +8,10 @@ public class Tienda {
 	private ArrayList<Factura>misFacturas;
 	private ArrayList<Componente>misComponentes;
 	private ArrayList<Combo> misCombos;
+	private static Tienda tienda;
 	
 	
-	public Tienda() {
+	private Tienda() {
 		super();
 		this.misClientes = new ArrayList<Cliente>();
 		this.misFacturas = new ArrayList<Factura>();
@@ -60,6 +61,12 @@ public class Tienda {
 	}
 	
 	
-	
+	//singleton
+		public static Tienda getInstance(){
+			if(tienda==null){
+				tienda = new Tienda();
+			}
+			return tienda;
+		}
 	
 }
