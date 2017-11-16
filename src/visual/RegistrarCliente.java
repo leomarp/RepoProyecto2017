@@ -112,6 +112,7 @@ public class RegistrarCliente extends JDialog {
 			txtcorreo.setColumns(10);
 			
 		}
+		
 		{
 			JPanel buttonPane = new JPanel();
 			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
