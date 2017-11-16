@@ -27,7 +27,11 @@ public class RegistrarProducto extends JDialog {
 	private JTextField txtNumeroSerie;
 	private JTextField txtpreciocompra;
 	private JTextField txtprecioventa;
-
+    private JPanel panelTarjetaMadre;
+    private JPanel panelDiscoDuro;
+    private JPanel panelMemoriaRam;
+    private JPanel panelMicroProcesador;
+    private JComboBox cbxTipoDeProducto;
 	/**
 	 * Launch the application.
 	 */
@@ -59,7 +63,7 @@ public class RegistrarProducto extends JDialog {
 		contentPanel.add(panel);
 		panel.setLayout(null);
 		
-		JPanel panelDiscoDuro = new JPanel();
+		 panelDiscoDuro = new JPanel();
 		panelDiscoDuro.setBorder(new TitledBorder(null, "Caracteristicas del Disco Duro", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		panelDiscoDuro.setBounds(10, 204, 404, 126);
 		panel.add(panelDiscoDuro);
@@ -89,7 +93,7 @@ public class RegistrarProducto extends JDialog {
 		cbxVelocidadDiscoDuro.setBounds(97, 95, 91, 20);
 		panelDiscoDuro.add(cbxVelocidadDiscoDuro);
 		
-		JPanel panelMemoriaRam = new JPanel();
+		 panelMemoriaRam = new JPanel();
 		panelMemoriaRam.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Caracteristicas de la Memoria Ram", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
 		panelMemoriaRam.setBounds(10, 204, 404, 126);
 		panel.add(panelMemoriaRam);
@@ -119,7 +123,7 @@ public class RegistrarProducto extends JDialog {
 		cbxTipoDeRam.setBounds(42, 95, 91, 20);
 		panelMemoriaRam.add(cbxTipoDeRam);
 		
-		JPanel panelMicroProcesador = new JPanel();
+		 panelMicroProcesador = new JPanel();
 		panelMicroProcesador.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Caracteristicas del MicroProcesador", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
 		panelMicroProcesador.setBounds(10, 204, 404, 126);
 		panel.add(panelMicroProcesador);
@@ -141,7 +145,7 @@ public class RegistrarProducto extends JDialog {
 		cbxVelocidadProcesador.setBounds(89, 73, 116, 20);
 		panelMicroProcesador.add(cbxVelocidadProcesador);
 		
-		JPanel panelTarjetaMadre = new JPanel();
+		 panelTarjetaMadre = new JPanel();
 		panelTarjetaMadre.setBorder(new TitledBorder(null, "Caracteristicas de la Tarjeta Madre", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		panelTarjetaMadre.setBounds(10, 204, 404, 126);
 		panel.add(panelTarjetaMadre);
@@ -237,7 +241,35 @@ public class RegistrarProducto extends JDialog {
 		lblTipoDeProducto.setBounds(10, 142, 92, 14);
 		panel.add(lblTipoDeProducto);
 		
-		JComboBox cbxTipoDeProducto = new JComboBox();
+		 cbxTipoDeProducto = new JComboBox();
+		cbxTipoDeProducto.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(cbxTipoDeProducto.getSelectedItem().toString().equalsIgnoreCase("Tarjeta Madre")) {
+					panelTarjetaMadre.setVisible(true);
+					panelDiscoDuro.setVisible(false);
+					panelMemoriaRam.setVisible(false);
+					panelMicroProcesador.setVisible(false);
+				} 
+				if(cbxTipoDeProducto.getSelectedItem().toString().equalsIgnoreCase("Disco Duro")) {
+					panelTarjetaMadre.setVisible(false);
+					panelDiscoDuro.setVisible(true);
+					panelMemoriaRam.setVisible(false);
+					panelMicroProcesador.setVisible(false);
+				} 
+				if(cbxTipoDeProducto.getSelectedItem().toString().equalsIgnoreCase("Memoria Ram")) {
+					panelTarjetaMadre.setVisible(false);
+					panelDiscoDuro.setVisible(false);
+					panelMemoriaRam.setVisible(true);
+					panelMicroProcesador.setVisible(false);
+				} 
+				if(cbxTipoDeProducto.getSelectedItem().toString().equalsIgnoreCase("MicroProcesador")) {
+					panelTarjetaMadre.setVisible(false);
+					panelDiscoDuro.setVisible(false);
+					panelMemoriaRam.setVisible(false);
+					panelMicroProcesador.setVisible(true);
+				} 
+			}
+		});
 		cbxTipoDeProducto.setModel(new DefaultComboBoxModel(new String[] {"", "Tarjeta Madre", "Disco Duro", "Memoria Ram", "MicroProcesador"}));
 		cbxTipoDeProducto.setBounds(10, 167, 129, 20);
 		panel.add(cbxTipoDeProducto);
