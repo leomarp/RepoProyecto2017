@@ -110,6 +110,7 @@ public class RegistrarCliente extends JDialog {
 			txtcorreo.setBounds(66, 182, 238, 20);
 			panel.add(txtcorreo);
 			txtcorreo.setColumns(10);
+			
 		}
 		{
 			JPanel buttonPane = new JPanel();
